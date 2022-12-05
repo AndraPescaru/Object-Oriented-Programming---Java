@@ -12,6 +12,8 @@ public  class test {
             students[i] = new Student();
         }
         course1.setStudents(students);
+
+
         course1.getStudents()[0].setname("Iulia");
         Integer t = new Integer(20);
         course1.getStudents()[0].setyear(t);
