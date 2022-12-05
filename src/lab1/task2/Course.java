@@ -33,10 +33,10 @@ public class Course {
         this.description = description;
     }
 
-    List<Student> filterYear(int year) {
-        List<Student> list = new ArrayList<>();
+    ArrayList<Student> filterYear(int year) {
+        ArrayList<Student> list = new ArrayList();
         for (int i = 0; i < students.length; ++i) {
-            if (students[i].getYear().equals(year)) {
+            if (students[i].getyear().equals(year)) {
                 list.add(students[i]);
             }
         }

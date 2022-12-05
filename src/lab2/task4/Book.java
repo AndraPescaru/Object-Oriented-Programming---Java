@@ -13,6 +13,7 @@ public class Book {
 
     public String toString() {
         // TODO
-        return null;
+
+        return "Cartea " + this.title + " a fost scrisa de " + this.author + " in anul " + this.year;
     }
 }
