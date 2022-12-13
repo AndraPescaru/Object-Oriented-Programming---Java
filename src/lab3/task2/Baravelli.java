@@ -1,31 +1,34 @@
 package lab3.task2;
-
 import lab3.task1.CandyBox;
+import java.util.Objects;
 
-public class Baravelli extends CandyBox {
-
-    private float radius;
+public class Baravelli extends CandyBox{
     private float height;
-    private double pi = 3.14159265359;
+    private float radius;
 
-    public Baravelli () {}
+    public Baravelli() {
+        this.height = 0;
+        this.radius = 0;
 
-    public Baravelli (String flavor, String origin, float radius, float height) {
-        super(flavor, origin);
-        this.radius = radius;
+    }
+
+    public Baravelli(String flavor1, String origin1, float height, float radius) {
+        super(flavor1,origin1);
         this.height = height;
-    }
-    public float getVolume() {
-        return this.radius * this.radius * this.height * ( float) pi;
+        this.radius = radius;
     }
 
-    @Override
-    public String toString () {
-        return super.toString() + " has volume " + this.getVolume();
+    public float getVolume() {
+        return (float)(this.height * Math.pow(this.radius, 2) * Math.acos(-1.0));
+    }
+
+    public String toString() {
+
+        return (super.toString()+ "chocolate has volume " + this.getVolume());
     }
 
     public void printBaravelliDim() {
-        System.out.println(this.radius);
-        System.out.println(this.height);
+        System.out.printf("Dimensiunea este %f %f", this.height, this.radius);
     }
 }
+

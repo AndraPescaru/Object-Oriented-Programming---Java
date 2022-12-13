@@ -1,15 +1,26 @@
 package lab3.task3;
 
 import lab3.task2.Lindt;
+import lab3.task1.CandyBox;
+
+import java.awt.geom.Area;
+import java.util.Objects;
 
 public class main {
     public static void main( String [] args) {
-        Lindt a = new Lindt("vanilie", "USA", 3, 2, 5);
-        Lindt b = new Lindt("vanilie", "USA", 3, 2, 5);
-        Lindt c = new Lindt("cacao", "Romania" , 4, 4, 2);
+        CandyBox box = new CandyBox();
 
-        System.out.println(a.equals(b));
-        System.out.println(a.equals(c));
+        System.out.printf("%s %s\n", box.getFlavor(),box.getOrigin());
+
+        System.out.println(box.getVolume());
+
+        Lindt obj1 = new Lindt( "Romania", "ciocolata", 1, 2, 3);
+        Lindt obj2 = new Lindt("Romania", "ciocolata", 1, 2, 3);
+        Lindt obj3 = new Lindt("Rusia", "Vanilie", 1, 2, 3);
+        System.out.println(obj1.equals(obj2));
+        System.out.println(obj1.equals(obj3));
+
+
 
     }
 

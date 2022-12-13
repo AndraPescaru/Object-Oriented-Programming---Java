@@ -1,33 +1,30 @@
 package lab3.task4;
 
+import java.lang.annotation.Retention;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import lab3.task1.CandyBox;
 import lab3.task2.Baravelli;
 import lab3.task2.ChocAmor;
 import lab3.task2.Lindt;
-
-import java.util.ArrayList;
+import lab3.task4.CandyBag;
 
 public class CandyBag {
+    private ArrayList Bag = new ArrayList<>();
 
-    private ArrayList<CandyBox> candybag = new ArrayList<>();
+    public CandyBag() {
 
-    public CandyBag () {
+        Baravelli Candy1 = new Baravelli("ciocolata", "Romania", 2, 3);
+        ChocAmor Candy2 = new ChocAmor("vanilie", "Belgia", 6);
+        Lindt Candy3 = new Lindt("frisca", "Luxemburg", 1, 2, 3);
 
-        Baravelli c1 = new Baravelli("cacao", "USA", 3, 3);
-        Baravelli c2 = new Baravelli("lamaie", "Turcia", 4, 2);
-        ChocAmor c3 = new ChocAmor("vanilie", "Romania", 5);
-        Lindt c4 = new Lindt("capsuni", "Olanda", 4, 5, 8);
-
-        candybag.add(c1);
-        candybag.add(c2);
-        candybag.add(c3);
-        candybag.add(c4);
+        Bag.add(Candy1);
+        Bag.add(Candy2);
+        Bag.add(Candy3);
     }
 
-    public ArrayList<CandyBox> getcandybag() {
-        return candybag;
+    public ArrayList<CandyBox> getBag() {
+        return this.Bag;
     }
-
-
 
 }

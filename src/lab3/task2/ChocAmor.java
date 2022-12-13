@@ -1,27 +1,33 @@
 package lab3.task2;
-
 import lab3.task1.CandyBox;
 
-public class ChocAmor extends CandyBox {
+import java.util.Objects;
 
+
+public class ChocAmor extends CandyBox{
     private float length;
 
-    public ChocAmor () {}
+    public ChocAmor() {
+        this.length = 0;
+    }
 
-    public ChocAmor (String flavor, String origin, float length) {
-        super(flavor, origin);
+    public ChocAmor(String flavor1, String origin1, float length) {
+        super(flavor1,origin1);
         this.length = length;
     }
 
     public float getVolume() {
-        return this.length * this.length * this.length;
+        return (float)(Math.pow(this.length, 3));
     }
 
-    @Override
-    public String toString () {
-        return super.toString() + " has volume " + this.getVolume();
+    public String toString() {
+
+        return (super.toString()+ "chocolate has volume " + this.getVolume());
     }
+
     public void printChocAmorDim() {
-        System.out.println(this.length);
+        System.out.printf("Dimensiunea este %f", this.length);
     }
+
+
 }

@@ -5,12 +5,16 @@ public class CandyBox {
     private String flavor;
     private String origin;
 
-    public CandyBox() {}
 
-    public CandyBox( String flavor, String origin) {
-        this.flavor = flavor;
-        this.origin = origin;
+    public CandyBox(){
+        this.flavor = "sugar-free";
+        this.origin = "Switzerland";
 
+    }
+
+    public CandyBox(String flavor1, String origin1) {
+        this.flavor = flavor1;
+        this.origin = flavor1;
     }
 
     public float getVolume() {
@@ -18,34 +22,30 @@ public class CandyBox {
     }
 
     public String getFlavor() {
-        return flavor;
-    }
-
-    public void setFlavor(String flavor) {
-        this.flavor = flavor;
+        return this.flavor;
     }
 
     public String getOrigin() {
-        return origin;
-    }
-
-    public void setOrigin(String origin) {
-        this.origin = origin;
+        return this.origin;
     }
 
     @Override
-    public String toString () {
-        return "The " + this.origin + " " + this.flavor ;
+    public String toString() {
+
+        return ("The" + this.flavor + " "+ this.origin + "chocolate");
     }
 
-    // Task 3
-    @Override
-    public boolean equals (Object p) {
-        if (this == p) return true;
-        if (!(p instanceof CandyBox)) {
-            return false;
-        }
-        return flavor.equals(((CandyBox) p).flavor) && origin.equals(((CandyBox) p).origin);
+    public boolean equals(Object box) {
+
+        if (this == box) return true; // Comparatia asta se face intre adresele celor doua obiecte
+
+        if (box == null  || getClass() != box.getClass()) return false;
+
+        CandyBox candybox = (CandyBox) box;
+
+        return flavor.equals(candybox.flavor) && origin.equals(candybox.origin); // se compara valorile celor lor
+
+
     }
 
 }
