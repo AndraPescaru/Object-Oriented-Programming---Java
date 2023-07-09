@@ -25,6 +25,7 @@ public class Vault {
 			boolean isVaultCorrupted = vault.checkPassword(Gigel.getPasswords().get(i));
 			if (isVaultCorrupted == true) {
 				Gigel.setMoney(9999);
+				
 			} else {
 				System.out.println("You have " + (3 - i) + " tries left until vault is self destroying");
 				System.out.println("Access failed...");
