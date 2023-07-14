@@ -21,6 +21,12 @@ public class Student {
 
     // TODO: copy constructor
 
+    public Student(Student persone) {
+        this.firstName = persone.firstName;
+        this.lastName = persone.lastName;
+        this.subjects = persone.subjects;
+    }
+
     public String getFirstName() {
         return firstName;
     }
@@ -47,7 +53,13 @@ public class Student {
 
     public double averageGrade() {
         // TODO
-        return 0;
+
+        float sum = 0;
+
+        for (Map.Entry<String,Integer> i : subjects.entrySet()) {
+            sum += i.getValue();
+        }
+        return sum / subjects.size();
     }
 
     public List<Teacher> getAllTeachers() {
@@ -56,7 +68,12 @@ public class Student {
     }
 
     public int getGradeForSubject(String subject) {
-        // TODO
+        for (Map.Entry<String,Integer> i : subjects.entrySet()) {
+            if (i.getKey().equals(subject)) {
+                return i.getValue();
+            }
+
+        }
         return 0;
     }
 
