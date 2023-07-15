@@ -2,6 +2,8 @@ package lab4.people;
 
 import lab4.database.Database;
 
+import javax.xml.crypto.Data;
+import java.awt.dnd.DropTarget;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -22,9 +24,13 @@ public class Student {
     // TODO: copy constructor
 
     public Student(Student persone) {
-        this.firstName = persone.firstName;
-        this.lastName = persone.lastName;
-        this.subjects = persone.subjects;
+        this.firstName = new String(persone.firstName);
+        this.lastName = new String(persone.lastName);
+        this.subjects = new HashMap<String, Integer>();
+        for(Map.Entry<String, Integer> entry : persone.subjects.entrySet()){
+            Integer aux = entry.getValue();
+            this.subjects.put(entry.getKey(), aux);
+        }
     }
 
     public String getFirstName() {
@@ -64,7 +70,7 @@ public class Student {
 
     public List<Teacher> getAllTeachers() {
         // TODO
-        return null;
+        return Database.getInstance().findAllTeachers();
     }
 
     public int getGradeForSubject(String subject) {
@@ -85,26 +91,26 @@ public class Student {
 
     public List<Teacher> getTeachersBySubject(String subject) {
         // TODO
-        return null;
+        return Database.getInstance().findTeachersBySubject(subject);
     }
 
     public List<Student> getAllStudents() {
         // TODO
-        return null;
+        return Database.getInstance().findAllStudents();
     }
 
     public List<Student> getStudentsBySubject(String subject) {
         // TODO
-        return null;
+        return Database.getInstance().getStudentsBySubject(subject);
     }
 
     public List<Student> getStudentsByAverageGrade() {
         // TODO
-        return null;
+        return Database.getInstance().getStudentsByAverageGrade();
     }
 
     public List<Student> getStudentsByGradeForSubject(String subject) {
         // TODO
-        return null;
+        return Database.getInstance().getStudentsByGradeForSubject(subject);
     }
 }

@@ -2,7 +2,10 @@ package lab4.people;
 
 import lab4.database.Database;
 
+import javax.xml.crypto.Data;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class Teacher {
     private String firstName;
@@ -18,9 +21,12 @@ public class Teacher {
     // TODO: copy constructor
 
     public Teacher(Teacher teacher) {
-        this.firstName = teacher.firstName;
-        this.lastName = teacher.firstName;
-        this.subjects = teacher.subjects;
+        this.firstName = new String(teacher.firstName);
+        this.lastName = new String(teacher.lastName);
+        this.subjects = new ArrayList<>();
+        for (String i : teacher.subjects) {
+            this.subjects.add(new String(i));
+        }
     }
 
     @Override
@@ -55,31 +61,31 @@ public class Teacher {
 
     public List<Teacher> getAllTeachers() {
         // TODO
-        return null;
+        return Database.getInstance().findAllTeachers();
     }
 
     public List<Teacher> getTeachersBySubject(String subject) {
         // TODO
-        return null;
+        return Database.getInstance().findTeachersBySubject(subject);
     }
 
     public List<Student> getAllStudents() {
         // TODO
-        return null;
+        return Database.getInstance().findAllStudents();
     }
 
     public List<Student> getStudentsBySubject(String subject) {
         // TODO
-        return null;
+        return Database.getInstance().getStudentsBySubject(subject);
     }
 
     public List<Student> getStudentsByAverageGrade() {
         // TODO
-        return null;
+        return Database.getInstance().getStudentsByAverageGrade();
     }
 
     public List<Student> getStudentsByGradeForSubject(String subject) {
         // TODO
-        return null;
+        return Database.getInstance().getStudentsByGradeForSubject(subject);
     }
 }

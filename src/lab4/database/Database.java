@@ -50,17 +50,17 @@ public class Database {
                 lista.add(teachers.get(i));
             }
         }
-        return lista;
+        return Collections.unmodifiableList(lista);
     }
 
     public List<Student> findAllStudents() {
         // TODO
-        return this.students;
+        return Collections.unmodifiableList(students);
     }
 
     public List<Teacher> findAllTeachers() {
         // TODO
-        return this.teachers;
+        return Collections.unmodifiableList(teachers);
     }
 
     public List<Student> getStudentsBySubject(String subject) {
@@ -73,7 +73,7 @@ public class Database {
                 lista.add(students.get(i));
             }
         }
-        return lista;
+        return Collections.unmodifiableList(lista);
     }
 
     public List<Student> getStudentsByAverageGrade() {
@@ -91,15 +91,15 @@ public class Database {
 //        students.sort(Comparator.comparingDouble(Student::averageGrade));
 
 
-//        for (int i = 0; i < students.size(); i++) {
-//            for (int j = i + 1; j < students.size(); j++) {
-//                if (students.get(i).averageGrade() > students.get(j).averageGrade()) {
-//                    Collections.swap(students,i,j);
-//                }
-//            }
-//        }
+        for (int i = 0; i < students.size(); i++) {
+            for (int j = i + 1; j < students.size(); j++) {
+                if (students.get(i).averageGrade() > students.get(j).averageGrade()) {
+                    Collections.swap(students,i,j);
+                }
+            }
+        }
 
-        return students;
+        return Collections.unmodifiableList(students);
 
     }
 
@@ -112,6 +112,6 @@ public class Database {
             }
         });
 
-        return students;
+        return Collections.unmodifiableList(students);
     }
 }
