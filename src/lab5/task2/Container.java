@@ -2,6 +2,8 @@ package lab5.task2;
 
 import lab5.task1.Task;
 
+import java.util.ArrayList;
+
 public interface Container {
     /**
      * Removes a Task from the Container.
@@ -32,6 +34,8 @@ public interface Container {
      *         false, otherwise
      */
     boolean isEmpty();
+
+    public ArrayList<Task> getTasks();
 
     /**
      * Transfers all the elements that exist in a Container in this Container.

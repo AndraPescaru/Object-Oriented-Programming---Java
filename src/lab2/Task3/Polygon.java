@@ -9,8 +9,8 @@ public class Polygon {
 
     public Polygon(float[] v) {
         int k = 0;
-
-        for (int i = 0 ; i < point.length / 2 ; ++i) {
+        this.point = new Point[v.length/2];
+        for (int i = 0 ; i < v.length / 2 ; ++i) {
             this.point[i] = new Point(v[k],v[k+1]);
             k += 2;
         }
